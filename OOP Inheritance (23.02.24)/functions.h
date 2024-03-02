@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-// main includes
+// main inclusions
 #include <iostream>
 #include <string>
 #include <iomanip>

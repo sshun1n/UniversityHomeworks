@@ -1,4 +1,4 @@
-﻿// main includes
+﻿// main inclusions
 #include <iostream>
 #include <string>
 

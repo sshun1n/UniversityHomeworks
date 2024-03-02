@@ -34,4 +34,5 @@ public:
 	int mainMenuInit();
 	string separator(int size);
 	void inputError();
+	int dataReductMenu();
 };

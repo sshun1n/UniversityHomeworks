@@ -20,3 +20,9 @@ int Interface::mainMenuInit() {
 
 	return inputFunction;
 }
+int Interface::dataReductMenu() {
+	int inputFunction;
+	cout << "Меню:\n[1] Редактировать базу данных\n[2] Выход\n\nВвод:"; cin >> inputFunction;
+	if (inputFunction < 1 or inputFunction > 2) { inputError(); return -1; }
+	return inputFunction;
+}

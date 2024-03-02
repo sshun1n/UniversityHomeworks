@@ -1,5 +1,5 @@
 ﻿#pragma once
-// main includes
+// main inclusions
 #include <iostream>
 #include <vector>
 #include <string>

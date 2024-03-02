@@ -23,6 +23,10 @@ public:
 
 	// methods
 	void print();
+	void lineByLinePrint();
+	void setID(string id); void setRole(string role); void setHourSalary(int hour_salary); void setHoursAmount(int hours_amount);
+	string getRole();
+	string getDataline();
 
 private:
 	string role;
@@ -35,4 +39,6 @@ public:
 	string separator(int size);
 	void inputError();
 	int dataReductMenu();
+	void fileError();
+	int reductMenu();
 };

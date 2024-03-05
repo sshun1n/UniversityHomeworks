@@ -66,10 +66,10 @@ void reductMenu(string path, vector<Worker> data) {
 		int function = ui.reductMenu();
 		system("cls");
 
-		if (function == 1) { cout << "Введите новое ФИО сотрудника: "; cin.ignore(); getline(cin, temp); data[id].setID(temp); }
-		if (function == 2) { cout << "Введите новую должность сотрудника: "; cin.ignore(); getline(cin, temp); data[id].setRole(temp); }
-		if (function == 3) { cout << "Введите новый оклад сотрудника: "; cin >> temp; data[id].setHourSalary(stoi(temp)); }
-		if (function == 4) { cout << "Введите кол-во отработанных сотрудником часов: "; cin >> temp; data[id].setHoursAmount(stoi(temp)); }
+		if (function == 1) { cout << "Введите новое ФИО сотрудника: "; cin.ignore(); getline(cin, temp); data[id].update("ID", temp); }
+		if (function == 2) { cout << "Введите новую должность сотрудника: "; cin.ignore(); getline(cin, temp); data[id].update("ROLE", temp); }
+		if (function == 3) { cout << "Введите новый оклад сотрудника: "; cin >> temp; data[id].update("HS", stoi(temp)); }
+		if (function == 4) { cout << "Введите кол-во отработанных сотрудником часов: "; cin >> temp; data[id].update("HA", stoi(temp)); }
 		if (function == 5) { data.erase(data.begin() + id); }
 
 		ofstream file(path); for (auto person : data) { file << person.getDataline() << '\n'; } file.close();
@@ -96,7 +96,7 @@ void findRole(string path) {
 	cout << "Введите должность для поиска: "; cin.ignore(); getline(cin, role); system("cls");
 	
 	cout << "Сотрудники на должности '" << role << "':\n\n " << ui.separator(151) << '\n';
-	for (auto worker : data) { if (worker.getRole() == role) { flag = true; cout << "|[" << counter << "]|"; worker.print(); counter++; } } 
+	for (auto worker : data) { if (worker.compareRole(role)) { flag = true; cout << "|[" << counter << "]|"; worker.print(); counter++; } } 
 	
 	if (flag) { cout << " " << ui.separator(151) << "\n\n\n"; }
 	else { system("cls"); cout << "Сотрудники на должности '" << role << "' не найдены.\n\n"; }

@@ -24,8 +24,8 @@ public:
 	// methods
 	void print();
 	void lineByLinePrint();
-	void setID(string id); void setRole(string role); void setHourSalary(int hour_salary); void setHoursAmount(int hours_amount);
-	string getRole();
+	void update(string flag, string temp); void update(string flag, int temp);
+	bool compareRole(string role);
 	string getDataline();
 
 private:

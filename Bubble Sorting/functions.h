@@ -70,7 +70,7 @@ vector<int> shakerSort(vector<int> array) {
 		} right--;
 
 		for (int j = right; j > left; j--) {
-			if (array[j] < array[j - 1]) { flag = true; swap(array[j], array[j - 1]); iteration(array, array[j], array[j + 1]); }
+			if (array[j] < array[j - 1]) { flag = true; swap(array[j], array[j - 1]); iteration(array, array[j], array[j - 1]); }
 		} left++;
 	}
 

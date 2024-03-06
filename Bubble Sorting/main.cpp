@@ -14,14 +14,14 @@ int main() {
 
 	if (function != 0) {
 		int size; cout << "Введите размерность массива: "; cin >> size; system("cls");
-		vector<int> array = arrayInit(size); cout << "Исходный массив:\n"; arrayPrint(array);
+		vector<int> array = arrayInit(size); cout << "| Исходный массив:\n\t"; arrayPrint(array);
 
 		if (function == 1) array = bubbleSort(array);
 		if (function == 2) array = sinkingSort(array);
 		if (function == 3) array = qSinkingSort(array);
 		if (function == 4) array = shakerSort(array);
 
-		cout << "\n\nОбработанный массив:\n"; arrayPrint(array);
+		cout << "\n\n| Обработанный массив:\n\t"; arrayPrint(array);
 	}
 
 	cout << '\n'; system("pause");

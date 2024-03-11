@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 
@@ -84,4 +85,57 @@ vector<int> shakerSort(vector<int> array) {
 
 	cout << "\n\n| Количество подмен: " << counter << "\n";
 	return array;
+}
+
+void analytics() {
+	ofstream file("table.csv");
+	
+	file << "bubble sort\nx; y\n";
+	for (int i = 3; i < 17; i++) {
+		int num = pow(2, i);
+		vector<int> array = arrayInit(num);
+		int size = array.size(), counter = 0;
+
+		for (int i = 0; i < size - 1; i++) {
+			for (int j = size - 1; j > i; j--) { if (array[j] < array[j - 1]) { swap(array[j], array[j - 1]); counter++; } }
+		}
+
+		file << num << "; " << counter << "\n";
+	}
+
+	file << "\nsinking sort\nx; y\n";
+	for (int i = 3; i < 17; i++) {
+		int num = pow(2, i);
+		vector<int> array = arrayInit(num);
+		int size = array.size(), counter = 0;
+
+		for (int i = 0; i < size - 1; i++) {
+			for (int j = size - 1; j > i; j--) { if (array[j] < array[j - 1]) { swap(array[j], array[j - 1]); counter++; } }
+		}
+
+		file << num << "; " << counter << "\n";
+	}
+
+	file << "\nshaker sort\nx; y\n";
+	for (int i = 3; i < 17; i++) {
+		int num = pow(2, i); bool flag = true;
+		vector<int> array = arrayInit(num);
+		int size = array.size(), counter = 0, left = 0, right = size - 1;;
+
+		while ((left < right) and flag) {
+			flag = false;
+
+			for (int i = left; i < right; i++) {
+				if (array[i] > array[i + 1]) { flag = true; swap(array[i], array[i + 1]); counter++; }
+			} right--;
+
+			for (int j = right; j > left; j--) {
+				if (array[j] < array[j - 1]) { flag = true; swap(array[j], array[j - 1]); counter++; }
+			} left++;
+		}
+
+		file << num << "; " << counter << "\n";
+	}
+
+	file.close();
 }

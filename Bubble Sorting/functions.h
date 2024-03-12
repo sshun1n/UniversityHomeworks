@@ -26,12 +26,44 @@ void iteration(vector<int> array, int i, int j, int counter) {
 	cout << left << setw(3) << " | " << setw(2) << i << " <-> " << setw(3) << j << "|";
 }
 
-vector<int> bubbleSort(vector<int> array) {
+vector<int> selectionSort(vector<int> array) {
 	int size = array.size(), counter = 0;
 	cout << "\n| Итерации:\n";
 
 	for (int i = 0; i < size - 1; i++) {
-		for (int j = size - 1; j > i; j--) { if (array[j] < array[j - 1]) { swap(array[j], array[j - 1]); counter++; iteration(array, array[j], array[j - 1], counter); } }
+		int temp = i;
+
+		for (int j = i + 1; j < size; j++) if (array[j] < array[temp]) { temp = j; }
+
+		iteration(array, array[i], array[temp], 0); swap(array[i], array[temp]); counter++;
+	}
+
+	cout << "\n\n| Количество подмен: " << counter << "\n";
+	return array;
+}
+
+vector<int> insertionSort(vector<int> array) {
+	int size = array.size(), counter = 0, i, key, j;
+	cout << "\n| Итерации:\n";
+	
+	for (i = 1; i < size; i++) {
+		key = array[i]; j = i - 1;
+
+		while (j >= 0 and array[j] > key) { array[j + 1] = array[j]; j--; }
+
+		array[j + 1] = key; counter++; iteration(array, 0, 0, 0);
+	}
+
+	cout << "\n\n| Количество подмен: " << counter << "\n";
+	return array;
+}
+
+vector<int> bubbleSort(vector<int> array) {
+	int size = array.size(), counter = 0;
+	cout << "\n| Итерации:\n";
+
+	for (int i = 0; i < size; i++) {
+		for (int j = 1; j < size - i; j++) { if (array[j] < array[j - 1]) { swap(array[j], array[j - 1]); counter++; iteration(array, array[j], array[j - 1], counter); } }
 	}
 
 	cout << "\n\n| Количество подмен: " << counter << "\n";

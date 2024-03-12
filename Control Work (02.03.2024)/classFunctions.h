@@ -12,10 +12,15 @@ void Worker::print() {
 void Worker::lineByLinePrint() {
 	cout << "ФИО: " << id << "\nДолжность: " << role << "\nПочасовой оклад: " << hour_salary << "\nКол-во отработанных часов: " << hours_amount << "\n\n";
 }
+
+void Worker::update(string temp, string flag) { if (flag == "ID") this->id = temp; if (flag == "ROLE") this->role = temp; }
+
+void Worker::update(int temp, string flag) { if (flag == "HS") this->hour_salary = temp; if (flag == "HA") this->hours_amount = temp; }
+
 string Worker::getDataline() { return id + '|' + role + '|' + to_string(hours_amount) + '|' + to_string(hour_salary); }
 
-bool Worker::compareRole(string role) { return this->role == role; }
+string Worker::getRole() { return role; }
 
-void Worker::update(string flag, string temp) { if (flag == "ID") this->id = temp; if (flag == "ROLE") this->role = temp; }
+int Worker::getHs() { return hour_salary; }
 
-void Worker::update(string flag, int temp) { if (flag == "HS") this->hour_salary = temp; if (flag == "HA") this->hours_amount = temp; }
+int Worker::getHa() { return hours_amount; }

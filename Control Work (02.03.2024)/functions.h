@@ -66,16 +66,76 @@ void reductMenu(string path, vector<Worker> data) {
 		int function = ui.reductMenu();
 		system("cls");
 
-		if (function == 1) { cout << "Введите новое ФИО сотрудника: "; cin.ignore(); getline(cin, temp); data[id].update("ID", temp); }
-		if (function == 2) { cout << "Введите новую должность сотрудника: "; cin.ignore(); getline(cin, temp); data[id].update("ROLE", temp); }
-		if (function == 3) { cout << "Введите новый оклад сотрудника: "; cin >> temp; data[id].update("HS", stoi(temp)); }
-		if (function == 4) { cout << "Введите кол-во отработанных сотрудником часов: "; cin >> temp; data[id].update("HA", stoi(temp)); }
+		if (function == 1) { cout << "Введите новое ФИО сотрудника: "; cin.ignore(); getline(cin, temp); data[id].update(temp, "ID"); }
+		if (function == 2) { cout << "Введите новую должность сотрудника: "; cin.ignore(); getline(cin, temp); data[id].update(temp, "ROLE"); }
+		if (function == 3) { cout << "Введите новый оклад сотрудника: "; cin >> temp; data[id].update(stoi(temp), "HS"); }
+		if (function == 4) { cout << "Введите кол-во отработанных сотрудником часов: "; cin >> temp; data[id].update(stoi(temp), "HA"); }
 		if (function == 5) { data.erase(data.begin() + id); }
 
 		ofstream file(path); for (auto person : data) { file << person.getDataline() << '\n'; } file.close();
 
 	}
+}
 
+void myQuickSort(vector<Worker>& array, int start, int end, string flag) {
+	int left = start, right = end, mid = (left + right) / 2;
+	
+	if (flag == "HS") {
+		int pivot = array[mid].getHs();
+
+		while (left <= right) {
+			while (array[left].getHs() < pivot) left++;
+			while (array[right].getHs() > pivot) right--;
+
+			if (left <= right) {
+				swap(array[left], array[right]);
+				left++; right--;
+			}
+		}
+	}
+	else if (flag == "HA") {
+		int pivot = array[mid].getHa();
+
+		while (left <= right) {
+			while (array[left].getHa() < pivot) left++;
+			while (array[right].getHa() > pivot) right--;
+
+			if (left <= right) {
+				swap(array[left], array[right]);
+				left++; right--;
+			}
+		}
+	}
+
+	if (flag == "HS'") {
+		int pivot = array[mid].getHs();
+
+		while (left <= right) {
+			while (array[left].getHs() > pivot) left++;
+			while (array[right].getHs() < pivot) right--;
+
+			if (left <= right) {
+				swap(array[left], array[right]);
+				left++; right--;
+			}
+		}
+	}
+	else if (flag == "HA'") {
+		int pivot = array[mid].getHa();
+
+		while (left <= right) {
+			while (array[left].getHa() > pivot) left++;
+			while (array[right].getHa() < pivot) right--;
+
+			if (left <= right) {
+				swap(array[left], array[right]);
+				left++; right--;
+			}
+		}
+	}
+
+	if (right > start) myQuickSort(array, start, right, flag);
+	if (left < end) myQuickSort(array, left, end, flag);
 }
 
 void dataOutput(string path) {
@@ -88,6 +148,24 @@ void dataOutput(string path) {
 		int function = ui.dataReductMenu(); system("cls");
 
 		if (function == 1) { reductMenu(path, data); }
+		if (function == 2) {
+			int subFunction, direction;
+			cout << "Сортировка:\n[1] По окладу\n[2] По кол-ву откработанных часов\n\nВвод: "; cin >> subFunction; system("cls");
+			cout << "Сортировка:\n[1] По возрастанию\n[2] По убыванию\n\nВвод: "; cin >> direction; system("cls");
+
+			if (direction == 1) {
+				if (subFunction == 1) myQuickSort(data, 0, data.size() - 1, "HS");
+				if (subFunction == 2) myQuickSort(data, 0, data.size() - 1, "HA");
+			}
+			else if (direction == 2) {
+				if (subFunction == 1) myQuickSort(data, 0, data.size() - 1, "HS'");
+				if (subFunction == 2) myQuickSort(data, 0, data.size() - 1, "HA'");
+			}
+			else ui.inputError();
+
+			ofstream file(path); for (auto person : data) { file << person.getDataline() << '\n'; } file.close();
+			dataOutput(path);
+		}
 	}
 }
 
@@ -96,7 +174,7 @@ void findRole(string path) {
 	cout << "Введите должность для поиска: "; cin.ignore(); getline(cin, role); system("cls");
 	
 	cout << "Сотрудники на должности '" << role << "':\n\n " << ui.separator(151) << '\n';
-	for (auto worker : data) { if (worker.compareRole(role)) { flag = true; cout << "|[" << counter << "]|"; worker.print(); counter++; } } 
+	for (auto worker : data) { if (worker.getRole() == role) { flag = true; cout << "|[" << counter << "]|"; worker.print(); counter++; } } 
 	
 	if (flag) { cout << " " << ui.separator(151) << "\n\n\n"; }
 	else { system("cls"); cout << "Сотрудники на должности '" << role << "' не найдены.\n\n"; }

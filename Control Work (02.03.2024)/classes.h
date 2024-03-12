@@ -24,8 +24,8 @@ public:
 	// methods
 	void print();
 	void lineByLinePrint();
-	void update(string flag, string temp); void update(string flag, int temp);
-	bool compareRole(string role);
+	void update(string temp, string flag); void update(int temp, string flag);
+	string getRole(); int getHs(); int getHa();
 	string getDataline();
 
 private:

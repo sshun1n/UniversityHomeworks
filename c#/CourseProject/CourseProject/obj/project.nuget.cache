@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "9a2bwd8VQslDKr4OfP1Y3LI9ZIYT/x/ORb9f7VOzaXqCHQpDluSz7GHILXdpz4xs89N6+tUCk5xT0XGL8vXQHg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\stepa\\source\\repos\\CourseProject\\CourseProject\\CourseProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\stepa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\stepa\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\stepa\\.nuget\\packages\\npgsql\\8.0.2\\npgsql.8.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

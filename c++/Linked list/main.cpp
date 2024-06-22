@@ -1,4 +1,4 @@
-#include "LinkedList.h"
+ï»¿#include "LinkedList.h"
 #include "Solution.h"
 
 using namespace std;
@@ -8,8 +8,8 @@ int main() {
 	List list;
 	int func, size;
 
-	cout << "[1] Çàïîëíèòü ñïèñîê ðàíäîìíî\n[2] Çàïîëíèòü ñïèñîê ñ êëàâèàòóðû\n\nÂâîä: "; cin >> func; system("cls");
-	cout << "Ââåäèòå êîëè÷åñòâî ýëåìåíòîâ: "; cin >> size; system("cls");
+	cout << "[1] Ð—Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ð¾\n[2] Ð—Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ñ‹\n\nÐ’Ð²Ð¾Ð´: "; cin >> func; system("cls");
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²: "; cin >> size; system("cls");
 	
 	if (func == 1) { vector<int> array = randArray(size); list = fromArrToList(array); }
 	if (func == 2) { list = InputList(size); }

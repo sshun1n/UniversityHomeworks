@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 #include "LinkedList.h"
 #include <vector>
@@ -28,17 +28,17 @@ List InputList(int size) {
 }
 
 void MainMenu(List& list) {
-	system("cls"); cout << "Òåêóùèé ñïèñîê:\n"; list.Print();
+	system("cls"); cout << "Ð¢ÐµÐºÑƒÑ‰Ð¸Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº:\n"; list.Print();
 	int func;
 
-	cout << "\n[1] Äîáàâèòü ýëåìåíò â íà÷àëî ñïèñêà\n[2] Äîáàâèòü ýëåìåíò â êîíåö ñïèñêà\n[3] Äîáàâèòü ýëåìåíò â îïðåäåë¸ííóþ ïîçèöèþ\n[4] Óäàëèòü ýëåìåíò ïî åãî çíà÷åíèþ\n[5] Óäàëèòü ýëåìåíò ïî åãî ïèçèöèè\n[6] Ïîèñê íîìåðà ïî çíà÷åíèþ\n[7] Î÷èñòèòü ñïèñîê\n\nÂâîä: "; cin >> func; system("cls");
+	cout << "\n[1] Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð½Ð°Ñ‡Ð°Ð»Ð¾ ÑÐ¿Ð¸ÑÐºÐ°\n[2] Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² ÐºÐ¾Ð½ÐµÑ† ÑÐ¿Ð¸ÑÐºÐ°\n[3] Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»Ñ‘Ð½Ð½ÑƒÑŽ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ\n[4] Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¿Ð¾ ÐµÐ³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑŽ\n[5] Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¿Ð¾ ÐµÐ³Ð¾ Ð¿Ð¸Ð·Ð¸Ñ†Ð¸Ð¸\n[6] ÐŸÐ¾Ð¸ÑÐº Ð½Ð¾Ð¼ÐµÑ€Ð° Ð¿Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑŽ\n[7] ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº\n\nÐ’Ð²Ð¾Ð´: "; cin >> func; system("cls");
 
-	if (func == 1) { int data; cout << "Ââåäèòå çíà÷åíèå ýëåìåíòà: "; cin >> data; list.AddNodeForward(data); }
-	if (func == 2) { int data; cout << "Ââåäèòå çíà÷åíèå ýëåìåíòà: "; cin >> data; list.AddNode(data); }
-	if (func == 3) { int data, index; list.Print(); cout << "\nÂâåäèòå ïîçèöèþ äëÿ âñòàâêè: "; cin >> index; cout << "Ââåäèòå çíà÷åíèå ýëåìåíòà: "; cin >> data; list.InsertNode(index, data); }
-	if (func == 4) { int data; cout << "Ââåäèòå çíà÷åíèå ýëåìåíòà: "; cin >> data; list.DeleteNode(data); }
-	if (func == 5) { int index; cout << "Ââåäèòå ïîçèöèþ ýëåìåíòà: "; cin >> index; list.DeleteIndex(index); }
-	if (func == 6) { int data; list.Print(); cout << "Ââåäèòå çíà÷åíèå ýëåìåíòà: "; cin >> data; cout << list.Index(data) << "\n"; system("pause"); }
+	if (func == 1) { int data; cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> data; list.AddNodeForward(data); }
+	if (func == 2) { int data; cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> data; list.AddNode(data); }
+	if (func == 3) { int data, index; list.Print(); cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ Ð´Ð»Ñ Ð²ÑÑ‚Ð°Ð²ÐºÐ¸: "; cin >> index; cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> data; list.InsertNode(index, data); }
+	if (func == 4) { int data; cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> data; list.DeleteNode(data); }
+	if (func == 5) { int index; cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> index; list.DeleteIndex(index); }
+	if (func == 6) { int data; list.Print(); cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> data; cout << list.Index(data) << "\n"; system("pause"); }
 	if (func == 7) { list.Clear(); }
 
 	MainMenu(list);
